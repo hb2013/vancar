@@ -1,0 +1,55 @@
+{
+  "options": {
+    "ver": "1.0.0",
+    "inspectConflicts": true,
+    "semicolons": true,
+    "freeze": [],
+    "ts": true
+  },
+  "app": {
+    "name": "vancar",
+    "description": "Project vancar",
+    "src": "src",
+    "packager": "npm@>= 3.0.0",
+    "providers": [
+      "rest",
+      "socketio"
+    ]
+  },
+  "services": {
+    "users": {
+      "name": "users",
+      "nameSingular": "user",
+      "subFolder": "",
+      "fileName": "users",
+      "adapter": "sequelize",
+      "path": "/users",
+      "isAuthEntity": true,
+      "requiresAuth": true,
+      "graphql": true
+    }
+  },
+  "authentication": {
+    "strategies": [
+      "local",
+      "google",
+      "facebook",
+      "github"
+    ],
+    "entity": "users"
+  },
+  "connections": {
+    "sequelize": {
+      "database": "mysql",
+      "adapter": "sequelize",
+      "connectionString": "mysql://root:xikuang@localhost:8306/vancar"
+    }
+  },
+  "middlewares": {
+    "oauth": {
+      "path": "*",
+      "camel": "oauth",
+      "kebab": "oauth"
+    }
+  }
+}

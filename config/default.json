@@ -1,0 +1,83 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "authentication": {
+    "secret": "87bbce61ff050f680ce72ef62aaa885c8d5b8ee1e6481cc6f772af7c542a92564e3a4182cf27a95f8cdcef11d99d2f9163e97fc0cbcb4ed5969d7286605a90a5ce84d18b639e78145cda6adead2c03518d8529c9a579bf93d0a897bf6d22ef37bf2c26ac67342e5ce51f5409122c8568adf0a1e16d0b67387fd98308c74e61e455adde52b0cf4fbfea2804e4357f8bc9c57d14f395ddb61900e3270167cd604017b09b10ef4e21eec18165f9452c1795b22b189bab0520f9efc9dbbe79b6ae4838339d0f15f88cbda219839c2e7a7a8e6a95d1d029b09f29c09632f5f3a7807bc2c8b7b554c2d1a6c1643b386a4182c6eb1c188bc8860b9cee064e3aeee76867",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    },
+    "google": {
+      "clientID": "your google client id",
+      "clientSecret": "your google client secret",
+      "successRedirect": "/",
+      "scope": [
+        "profile openid email"
+      ]
+    },
+    "facebook": {
+      "clientID": "your facebook client id",
+      "clientSecret": "your facebook client secret",
+      "successRedirect": "/",
+      "scope": [
+        "public_profile",
+        "email"
+      ],
+      "profileFields": [
+        "id",
+        "displayName",
+        "first_name",
+        "last_name",
+        "email",
+        "gender",
+        "profileUrl",
+        "birthday",
+        "picture",
+        "permissions"
+      ]
+    },
+    "wechat": {
+      "clientID": "wxd55001d976b437c9",
+      "clientSecret": "74f23788935d4929ecad9af29bd70d45",
+      "appID": "wxd55001d976b437c9",
+      "appSecret": "74f23788935d4929ecad9af29bd70d45",
+      "callbackURL":"http://w.05k.cn/auth/wechat/callback",
+      "scope": "snsapi_userinfo",
+      "successRedirect": "/"
+    },
+    "github": {
+      "clientID": "your github client id",
+      "clientSecret": "your github client secret",
+      "successRedirect": "/"
+    },
+    "cookie": {
+      "enabled": true,
+      "name": "feathers-jwt",
+      "httpOnly": false,
+      "secure": false
+    }
+  },
+  "mysql": "mysql://root:xikuang@localhost:8306/vancar"
+}
